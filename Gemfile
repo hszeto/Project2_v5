@@ -10,9 +10,11 @@ gem 'bootstrap-sass', '~> 3.2.0'
 gem 'bower-rails'
 gem 'angular-rails-templates'
 # Paperclip
-gem "mongoid-paperclip", "~> 0.0.8", :require => "mongoid_paperclip"
+gem "mongoid-paperclip", :require => "mongoid_paperclip"
 # Use ActiveModel has_secure_password
 gem 'bcrypt', '~> 3.1.7'
+
+gem "paperclip", "~> 4.2"
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.1.7'

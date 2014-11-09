@@ -1,7 +1,10 @@
+<!-- Show one discussion topic -->
 <div class="center jumbotron">
 Title: <%= @post.title %><br>
 Comment: <%= @post.content %><br>
 </div>
+
+<!-- Show all the comment replies -->
 <h1>
   Reply:
 </h1>
@@ -9,16 +12,14 @@ Comment: <%= @post.content %><br>
 <div class="center jumbotron">
     <div>Author:  <%=comment.author %></div>
     <div>Comment: <%=comment.comment %></div>
-
-    <%= link_to 'Add-Photo', new_photos_path %>
-
-    <%= link_to 'Edit', edit_comment_path(:comment => comment.id) %>
-
+    <div><%= link_to 'Edit', edit_comment_path(:comment => comment.id) %></div>
+    <div>Photo: <%= image_tag @comment.avatar_file_name %></div>
 </div>
 <% end %>
 
+<!-- Add New Comment -->
 <div class="center jumbotron">
-<h2>New Comment</h2>
+<h2>New Comment or Reply</h2>
 
 <%= form_for(@comment ,:url => {:action => :new_comment, :controller => :post} ) do |f| %>
 
@@ -32,12 +33,16 @@ Comment: <%= @post.content %><br>
       <%= f.label :comment %><br>
       <%= f.text_area :comment %>
     </div><br>
+    <div>
+      <%= f.file_field :avatar %>
+    </div>
     <div class="actions">
       <%= f.submit 'Submit', class: "btn btn-primary"  %>
     </div>
 <% end %>
 </div>
 
+<!-- SEARCH BOX -->
 <div class="center jumbotron">
     <%= form_tag("/comment_search/find_author", method: "post") do %>
       <%= label_tag(:author, "Author Search:") %>

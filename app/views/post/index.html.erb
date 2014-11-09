@@ -1,3 +1,5 @@
+<!-- Post main Index page -->
+
 <div class="center jumbotron">
 	<table class="table  table-striped">
 		<thead>
@@ -11,8 +13,12 @@
 				   <td><%= post.title %></td>
 				   <td><%= post.content %></td>
 				   <td><%= link_to 'Show', one_path(:post => post.id) %>
+
+				   	<% if current_user == nil %>
+				   		<% elsif current_user.id == post.user_id %>
 				   	   <%= link_to 'Edit', edit_post_path(:post => post.id) %>
-					   <%= link_to 'Delete',{:post => post.id}, method: :delete, data: { confirm: 'Are you sure?'} %>	
+					   <%= link_to 'Delete',{:post => post.id}, method: :delete, data: { confirm: 'Are you sure?'} %>
+					   <% end %>	
 				   </td>
 			   </tr>
 		<% end %>
