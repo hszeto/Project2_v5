@@ -1,7 +1,9 @@
 <!-- Show one discussion topic -->
 <div class="center jumbotron">
-Title: <%= @post.title %><br>
-Comment: <%= @post.content %><br>
+  <h2>
+    Title:  <%= @post.title %><br><br>
+    Comment:  <%= @post.content %><br>
+  </h2>
 </div>
 
 <!-- Show all the comment replies -->
@@ -14,7 +16,7 @@ Comment: <%= @post.content %><br>
       <div>Comment: <%= comment.comment %></div>
       <div><%= link_to 'Edit', edit_comment_path(:comment => comment.id) %></div>
         <% if comment.avatar.to_s != "/images/original/missing.png" %>
-            <div>Photo: <%= image_tag comment.avatar.url %></div>
+            <div><%= image_tag comment.avatar.url %></div>
         <% end %>
   </div>
 <% end %>
@@ -50,5 +52,6 @@ Comment: <%= @post.content %><br>
       <%= label_tag(:author, "Author Search:") %>
       <%= text_field_tag(:author) %>
       <%= submit_tag("Search")  %>
-    <% end %>
+    <% end %><br>
+  <%= link_to "Go back", post_path %>  
 </div>

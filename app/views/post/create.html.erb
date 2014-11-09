@@ -1,5 +1,6 @@
 <!-- Create new post -->
 
+<div class="center jumbotron">
 <%= form_for( @post, :url => {:action => :create_post, :controller => :post} ) do |f| %>
 <div class="row">
 <div class="col-md-6 col-md-offset-3">
@@ -12,12 +13,13 @@
     <%= f.label :content %><br>
     <%= f.text_area :content, class: 'form-control' %>
   </div>
-
+<br>
   <div class="actions">
     <%= f.submit 'Submit', class: "btn btn-primary" %>
   </div>
-
+  <br>
+  <%= link_to "Go back", post_path %>  
 </div>
 </div>
-
+</div>
 <% end %>
