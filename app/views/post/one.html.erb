@@ -8,16 +8,16 @@ Comment: <%= @post.content %><br>
 <h1>
   Reply:
 </h1>
-<div class="center jumbotron">
-  <% @post.comments.each do |comment| %>
+<% @post.comments.each do |comment| %>
+  <div class="center jumbotron">
       <div>Author:  <%= comment.author %></div>
       <div>Comment: <%= comment.comment %></div>
       <div><%= link_to 'Edit', edit_comment_path(:comment => comment.id) %></div>
         <% if comment.avatar.to_s != "/images/original/missing.png" %>
             <div>Photo: <%= image_tag comment.avatar.url %></div>
         <% end %>
-  <% end %>
-</div>
+  </div>
+<% end %>
 
 <!-- Add New Comment -->
 <div class="center jumbotron">
