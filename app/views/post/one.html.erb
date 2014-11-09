@@ -1,0 +1,47 @@
+<div class="center jumbotron">
+Title: <%= @post.title %><br>
+Comment: <%= @post.content %><br>
+</div>
+<h1>
+  Reply:
+</h1>
+<% @post.comments.each do |comment| %>
+<div class="center jumbotron">
+    <div>Author:  <%=comment.author %></div>
+    <div>Comment: <%=comment.comment %></div>
+
+    <%= link_to 'Add-Photo', new_photos_path %>
+
+    <%= link_to 'Edit', edit_comment_path(:comment => comment.id) %>
+
+</div>
+<% end %>
+
+<div class="center jumbotron">
+<h2>New Comment</h2>
+
+<%= form_for(@comment ,:url => {:action => :new_comment, :controller => :post} ) do |f| %>
+
+  <%= hidden_field_tag :post_id, @post.id %>
+
+    <div class="field">
+      <%= f.label :author %><br>
+      <%= f.text_field :author %>
+    </div>
+    <div class="field">
+      <%= f.label :comment %><br>
+      <%= f.text_area :comment %>
+    </div><br>
+    <div class="actions">
+      <%= f.submit 'Submit', class: "btn btn-primary"  %>
+    </div>
+<% end %>
+</div>
+
+<div class="center jumbotron">
+    <%= form_tag("/comment_search/find_author", method: "post") do %>
+      <%= label_tag(:author, "Author Search:") %>
+      <%= text_field_tag(:author) %>
+      <%= submit_tag("Search")  %>
+    <% end %>
+</div>

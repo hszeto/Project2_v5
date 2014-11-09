@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Proj2v4</title>
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.0.0/css/bootstrap-glyphicons.css" rel="stylesheet">
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+<header class="navbar navbar-fixed-top">
+  <nav>
+	<div class="container">
+
+		<%= link_to 'Henry Blog', root_path %>
+
+		<div id="loginout">
+		    <% if current_user %>
+		      Logged in as <%= current_user.email %>.
+		      <%= link_to "Log Out", logout_path %>
+		    <% else %>
+		      <%= link_to "Sign Up", signup_path %> or
+		      <%= link_to "Log In", login_path %>
+		    <% end %>
+		</div>
+
+	</div>
+  </nav>
+</header>
+
+<%= yield %>
+
+</body>
+</html>

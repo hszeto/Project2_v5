@@ -1,0 +1,21 @@
+<div class="center jumbotron">
+<h2>Edit</h2>
+
+<%= form_for(@comment ,:url => {:action => :update_comment, :controller => :post} ) do |f| %>
+<%= hidden_field_tag :comment_id, @comment.id %>
+    <div class="field">
+      <%= f.label :author %><br>
+      <%= f.text_field :author %>
+    </div>
+    <div class="field">
+      <%= f.label :comment %><br>
+      <%= f.text_area :comment %>
+    </div>
+    <div class="actions">
+      <%= f.submit 'Submit edit', class: "btn btn-primary"  %>
+    </div>
+    <div class="field">
+   		<%= link_to "Go back", post_path %>
+    </div>
+<% end %>
+</div>

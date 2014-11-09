@@ -1,0 +1,21 @@
+<div class="center jumbotron">
+<h2>Search Result</h2>
+<% if @posts %>
+	<table class="table">
+		<thead>
+			  <tr>
+			   		<td>Title</td>
+			   		<td>Comment</td>
+			  </tr>
+		</thead>
+		<% @posts.each do |post| %>
+			   <tr>
+				   <td><%= post.title %></td>
+				   <td><%= post.content %></td>
+				   <td><%= link_to 'Show', one_path(:post => post.id) %></td>
+			   </tr>
+		<% end %>
+	</table>
+<% end %>
+
+</div>

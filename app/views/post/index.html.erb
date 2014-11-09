@@ -1,0 +1,30 @@
+<div class="center jumbotron">
+	<table class="table  table-striped">
+		<thead>
+			  <tr>
+			   		<td>Title</td>
+			   		<td>Comment</td>
+			  </tr>
+		</thead>
+		<% @posts.each do |post| %>
+			   <tr>
+				   <td><%= post.title %></td>
+				   <td><%= post.content %></td>
+				   <td><%= link_to 'Show', one_path(:post => post.id) %>
+				   	   <%= link_to 'Edit', edit_post_path(:post => post.id) %>
+					   <%= link_to 'Delete',{:post => post.id}, method: :delete, data: { confirm: 'Are you sure?'} %>	
+				   </td>
+			   </tr>
+		<% end %>
+	</table>
+	<hr>
+	<%= link_to 'New Post', create_path %>
+</div>
+
+<div class="center jumbotron">
+		<%= form_tag("/comment_search/find", method: "post") do %>
+	    <%= label_tag(:title, "Title Search:") %>
+	    <%= text_field_tag(:title) %>
+	    <%= submit_tag("Search")  %>
+		<% end %>
+</div>
