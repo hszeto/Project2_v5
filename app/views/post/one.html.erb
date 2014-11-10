@@ -2,7 +2,8 @@
 <div class="center jumbotron">
   <h2>
     Title:  <%= @post.title %><br><br>
-    Comment:  <%= @post.content %><br>
+    Comment:  <%= @post.content %><br><br>
+    Started by: <%= User.find(@post.user.id).username %>
   </h2>
 </div>
 
@@ -23,7 +24,7 @@
 
 <!-- Add New Comment -->
 <div class="center jumbotron">
-<h2>New Comment or Reply</h2>
+<h2>Submit a reply</h2>
 
 <%= form_for(@comment ,:url => {:action => :new_comment, :controller => :post} ) do |f| %>
 
