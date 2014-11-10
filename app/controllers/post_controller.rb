@@ -55,6 +55,10 @@ class PostController < ApplicationController
      @id = params[:post_id]
      @post = Post.find(@id)
      @post.comments << Comment.new(params.require(:comment).permit(:author, :comment, :avatar))
+     
+     @current_user = current_user
+     @current_user.comments << @post.comments
+
      if @post.save
       redirect_to one_path(:post => @id)
      end

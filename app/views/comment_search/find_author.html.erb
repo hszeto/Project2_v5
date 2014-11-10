@@ -1,6 +1,7 @@
 <div class="center jumbotron">
 <h2>Search Result</h2>
 
+<!--
 <% if @authors %>
 	<table class="table">
 		<thead>
@@ -8,15 +9,34 @@
 			   		<td>Author</td>
 			   		<td>Comment</td>
 			  </tr>
-		</thead>
-		<% @authors.each do |author| %>
+		</thead>		
+ 		<% @authors.each do |author| %>
 			<tr>
 			   <td><%= author.author %></td>
 			   <td><%= author.comment %></td>
 			 
-			</tr>
+			</tr> 
 		<% end %>
 	</table>
-	<%= link_to 'Go back', post_path %>
+
 <% end %>
+-->
+<% if @search_author==nil %>
+	<p>Nothing found</p>
+	<%= link_to 'Go back', post_path %>
+<% else %>
+	<table class="table">
+		<thead>
+			  <tr>
+			   		<td><%= @search_author.username %> had posted:</td>
+			  </tr>
+		</thead>		
+ 		<% @author_said.each do |said| %>
+			<tr>
+			   <td><%= said.comment %></td>
+			</tr> 
+		<% end %>
+	</table>
+		<%= link_to 'Go back', post_path %>
 </div>
+<% end %>

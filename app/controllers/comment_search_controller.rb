@@ -3,7 +3,9 @@ class CommentSearchController < ApplicationController
 	#skip_before_filter :authorize
 
 	def find_author
-		@authors = Comment.where(:'author' => params[:author])
+		@search_author = User.find_by(:username => params[:author])
+		
+		@author_said = Comment.where(:user_id => @search_author)
 	end
 
 	def find

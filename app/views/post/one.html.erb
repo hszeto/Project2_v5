@@ -13,7 +13,8 @@
 </h1>
 <% @post.comments.each do |comment| %>
   <div class="center jumbotron">
-      <div>Author:  <%= comment.author %></div>
+     <!--  <div>Author:  <%= comment.author %></div> -->
+      <div>Replied by: <%= User.find(comment.user_id).username %></div>
       <div>Comment: <%= comment.comment %></div>
       <div><%= link_to 'Edit', edit_comment_path(:comment => comment.id) %></div>
         <% if comment.avatar.to_s != "/images/original/missing.png" %>
@@ -24,16 +25,15 @@
 
 <!-- Add New Comment -->
 <div class="center jumbotron">
-<h2>Submit a reply</h2>
 
 <%= form_for(@comment ,:url => {:action => :new_comment, :controller => :post} ) do |f| %>
 
   <%= hidden_field_tag :post_id, @post.id %>
 
-    <div class="field">
+<!--     <div class="field">
       <%= f.label :author %><br>
       <%= f.text_field :author %>
-    </div>
+    </div> -->
     <div class="field">
       <%= f.label :comment %><br>
       <%= f.text_area :comment %>
@@ -56,3 +56,4 @@
     <% end %><br>
   <%= link_to "Go back", post_path %>  
 </div>
+
