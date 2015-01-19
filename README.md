@@ -10,7 +10,7 @@ Gems:<br>
 <br>
 Usage:<br>
 - Clone the repo<br>
-- $ bundel install<br>
+- $ bundle install<br>
 - $ sudo mongod<br>
 - $ rails s<br>
 - open browswer<br>
