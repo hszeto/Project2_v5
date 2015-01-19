@@ -1,5 +1,6 @@
-Photo Sharing Chat Room <br>
+WDI Project2 - Photo Sharing Chat Room <br>
 Built with Ruby on Rails + MongoDB<br>
+<br>
 Gems:<br>
 -- gem 'bcrypt', '~> 3.1.7'			(for encryption)<br>
 -- gem "paperclip", "~> 4.2"		(for paperclip)<br>
