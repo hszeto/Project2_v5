@@ -13,6 +13,6 @@ Usage:<br>
 - $ bundle install<br>
 - $ sudo mongod<br>
 - $ rails s<br>
-- open browswer<br>
+- open web browser<br>
 - goto localhost:3000<br>
-- signup for an account and start posting<br>
+- sign up for an account and start posting<br>
